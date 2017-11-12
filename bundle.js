@@ -1,0 +1,11 @@
+(function () {
+'use strict';
+
+let $loading = document.querySelector('.js-loading');
+let $container = document.querySelector('.js-components');
+
+$loading.style.display = 'none';
+$container.innerHTML = '<strong>Chat</strong>';
+
+}());
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYnVuZGxlLmpzIiwic291cmNlcyI6WyJzcmMvbWFpbi5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJsZXQgJGxvYWRpbmcgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcuanMtbG9hZGluZycpO1xubGV0ICRjb250YWluZXIgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcuanMtY29tcG9uZW50cycpO1xuXG4kbG9hZGluZy5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnO1xuJGNvbnRhaW5lci5pbm5lckhUTUwgPSAnPHN0cm9uZz5DaGF0PC9zdHJvbmc+JztcbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxJQUFJLFFBQVEsR0FBRyxRQUFRLENBQUMsYUFBYSxDQUFDLGFBQWEsQ0FBQyxDQUFDO0FBQ3JELElBQUksVUFBVSxHQUFHLFFBQVEsQ0FBQyxhQUFhLENBQUMsZ0JBQWdCLENBQUMsQ0FBQzs7QUFFMUQsUUFBUSxDQUFDLEtBQUssQ0FBQyxPQUFPLEdBQUcsTUFBTSxDQUFDO0FBQ2hDLFVBQVUsQ0FBQyxTQUFTLEdBQUcsdUJBQXVCLENBQUM7Ozs7In0=
