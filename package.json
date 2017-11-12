@@ -1,0 +1,15 @@
+{
+  "name": "minichat",
+  "version": "1.0.0",
+  "description": "Test project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node_modules/.bin/static .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vladimir Demidov <vladimir.dem@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "node-static": "^0.7.10"
+  }
+}
