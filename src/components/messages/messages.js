@@ -2,6 +2,7 @@ class Messages {
     constructor($el) {
         this.$el = $el;
         this.$el.innerHTML = '<b>messages here</b>';
+        this.data = {};
     }
 
     setData(data) {
@@ -10,8 +11,17 @@ class Messages {
         this.render();
     }
 
+    addMessage(message) {
+        if (!this.data.messages) {
+            this.data.messages = [];
+        }
+
+        this.data.messages.push(message);
+        this.render();
+    }
+
     render() {
-        if (this.data && this.data.messages) {
+        if (this.data.messages) {
             let html = this.data.messages
                 .map(item => this.tmplMessage(item.message))
                 .join('\n');
