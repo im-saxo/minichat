@@ -1,5 +1,6 @@
-import Messages from './components/messages/messages';
-import Form from './components/form/form';
+import Chat from './views/chat/chat';
+import Auth from './views/auth/auth';
+import Router from './router/router';
 
 let $loading = document.querySelector('.js-loading');
 let $container = document.querySelector('.js-components');
@@ -18,22 +19,23 @@ let data = {
     ],
 };
 
-// messages
-let $messages = document.createElement('div');
-$messages.className = 'messages';
-$container.appendChild($messages);
-
-let messages = new Messages($messages);
-messages.setData(data);
-
-// compose
-let $form = document.createElement('div');
-$container.appendChild($form);
-
-let compose = new Form($form);
-compose.onSend = (message) => {
-    messages.addMessage(message);
+// views
+let views = {
+    chat: new Chat(document.createElement('div')),
+    auth: new Auth(document.createElement('div')),
 };
+
+Object.keys(views).forEach((key) => {
+    views[key].$el.style.display = 'none';
+    $container.appendChild(views[key].$el);
+});
+
+views.chat.setData(data);
+
+// router
+let router = new Router(views);
+
+router.start();
 
 // ready
 $loading.style.display = 'none';

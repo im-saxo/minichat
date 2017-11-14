@@ -8,7 +8,8 @@ class Form {
     render() {
         this.$el.innerHTML = `<form class="compose js-form" action="#">
         <input type="text" class="compose-input js-input" name="message" autocomplete="off"/>
-        <button type="submit" class="btn">Send</button>`;
+        <button type="submit" class="btn">Send</button>
+        </form>`;
 
         this.initEvents();
     }

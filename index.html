@@ -6,6 +6,21 @@
     <body>
         <div class="js-loading">loading...</div>
         <div class="js-components" style="display: none;"></div>
+        <!-- firebase -->
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBN_wp6DtdSPShUqCb2yKceAromQVoEaFQ",
+            authDomain: "minichat-958fd.firebaseapp.com",
+            databaseURL: "https://minichat-958fd.firebaseio.com",
+            projectId: "minichat-958fd",
+            storageBucket: "minichat-958fd.appspot.com",
+            messagingSenderId: "379678203803"
+        };
+        firebase.initializeApp(config);
+        </script>
+        <!-- app -->     
         <script src="bundle.js"></script>
     </body>
 </html>
