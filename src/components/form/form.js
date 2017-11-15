@@ -26,8 +26,12 @@ class Form extends Emitter {
     }
 
     onSubmit(event) {
-        this.emit('send', { user: 'Default', message: this.$input.value });
-        this.$input.value = '';
+        let message = this.$input.value.trim();
+
+        if (message) {
+            this.emit('send', { message });
+            this.$input.value = '';
+        }
 
         event.preventDefault();
     }

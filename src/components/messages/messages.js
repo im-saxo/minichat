@@ -1,8 +1,7 @@
 class Messages {
     constructor($el) {
         this.$el = $el;
-        this.$el.innerHTML = '<b>messages here</b>';
-        this.data = {};
+        this.data = [];
     }
 
     setData(data) {
@@ -12,17 +11,21 @@ class Messages {
     }
 
     addMessage(message) {
-        if (!this.data.messages) {
-            this.data.messages = [];
+        if (!this.data) {
+            this.data = [];
         }
 
-        this.data.messages.push(message);
+        if (!message.time && message.timestamp) {
+            message.time = new Date(message.timestamp);
+        }
+
+        this.data.push(message);
         this.render();
     }
 
     render() {
-        if (this.data.messages) {
-            let html = this.data.messages
+        if (this.data) {
+            let html = this.data
                 .map(item => this.tmplMessage(item))
                 .join('\n');
 
@@ -32,8 +35,10 @@ class Messages {
         }
     }
 
-    tmplMessage({ user, message }) {
-        return `<div class="message"><strong>${user}</strong>: ${message}</div>`;
+    tmplMessage({ name, message }) {
+        return `<div class="message">
+        <strong>${name}</strong>:&nbsp;${message}
+        </div>`;
     }
 }
 

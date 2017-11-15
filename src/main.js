@@ -1,23 +1,10 @@
 import Chat from './views/chat/chat';
 import Auth from './views/auth/auth';
 import Router from './router/router';
+import authService from './services/auth';
 
 let $loading = document.querySelector('.js-loading');
 let $container = document.querySelector('.js-components');
-
-// load data
-let data = {
-    messages: [
-        {
-            user: 'John',
-            message: 'Hi!',
-        },
-        {
-            user: 'Jane',
-            message: 'Hello there!',
-        },
-    ],
-};
 
 // views
 let views = {
@@ -29,8 +16,6 @@ Object.keys(views).forEach((key) => {
     views[key].$el.style.display = 'none';
     $container.appendChild(views[key].$el);
 });
-
-views.chat.setData(data);
 
 // router
 let router = new Router(views);

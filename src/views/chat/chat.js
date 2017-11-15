@@ -1,12 +1,13 @@
 import Base from '../base/base';
 import Messages from '../../components/messages/messages';
 import Form from '../../components/form/form';
+import messagesService from '../../services/messages';
 
 class Chat extends Base {
-    setData(data) {
-        this.data = data;
+    constructor($el) {
+        super($el);
 
-        this.messages.setData(data);
+        messagesService.on('message', this.onMessage.bind(this));
     }
 
     render() {
@@ -19,16 +20,21 @@ class Chat extends Base {
         this.$el.appendChild($messages);
 
         this.messages = new Messages($messages);
-        this.messages.setData(this.data || {});
 
         // compose
         let $form = document.createElement('div');
         this.$el.appendChild($form);
 
         this.compose = new Form($form);
-        this.compose.on('send', (message) => {
-            this.messages.addMessage(message);
-        });
+        this.compose.on('send', this.onSend.bind(this));
+    }
+
+    onSend(message) {
+        messagesService.addMessage(message);
+    }
+
+    onMessage(message) {
+        this.messages.addMessage(message);
     }
 }
 
