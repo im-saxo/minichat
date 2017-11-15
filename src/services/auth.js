@@ -1,11 +1,24 @@
-// TODO: use import
-let { firebase } = window;
+// TODO: bundle
+import Emitter from 'event-emitter-es6';
+import * as firebase from 'firebase';
+
+const config = {
+    apiKey: 'AIzaSyBN_wp6DtdSPShUqCb2yKceAromQVoEaFQ',
+    authDomain: 'minichat-958fd.firebaseapp.com',
+    databaseURL: 'https://minichat-958fd.firebaseio.com',
+    projectId: 'minichat-958fd',
+    storageBucket: 'minichat-958fd.appspot.com',
+    messagingSenderId: '379678203803',
+};
 
 /**
  * Singleton auth service
  */
-class AuthService {
+class AuthService extends Emitter {
     constructor() {
+        super();
+
+        this.app = firebase.initializeApp(config);
         this.auth = firebase.auth();
 
         this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
@@ -25,15 +38,11 @@ class AuthService {
 
     onAuthStateChanged(user) {
         if (user) {
-            this.onLogin();
+            this.emit('login', user);
         } else {
-            this.onLogout();
+            this.emit('logout');
         }
     }
-
-    onLogin() {}
-
-    onLogout() {}
 }
 
 export default new AuthService();

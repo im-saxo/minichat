@@ -1,5 +1,9 @@
-class Form {
+import Emitter from 'event-emitter-es6';
+
+class Form extends Emitter {
     constructor($el) {
+        super();
+
         this.$el = $el;
 
         this.render();
@@ -22,13 +26,11 @@ class Form {
     }
 
     onSubmit(event) {
-        this.onSend({ user: 'Default', message: this.$input.value });
+        this.emit('send', { user: 'Default', message: this.$input.value });
         this.$input.value = '';
 
         event.preventDefault();
     }
-
-    onSend() {}
 }
 
 export default Form;

@@ -7,13 +7,13 @@ class Router {
     }
 
     start() {
-        authService.onLogin = () => {
+        authService.on('login', () => {
             this.route('chat');
-        };
+        });
 
-        authService.onLogout = () => {
+        authService.on('logout', () => {
             this.route('auth');
-        };
+        });
 
         let name = authService.getUser() ? 'chat' : 'auth';
 

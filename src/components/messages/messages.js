@@ -23,7 +23,7 @@ class Messages {
     render() {
         if (this.data.messages) {
             let html = this.data.messages
-                .map(item => this.tmplMessage(item.message))
+                .map(item => this.tmplMessage(item))
                 .join('\n');
 
             this.$el.innerHTML = html;
@@ -32,8 +32,8 @@ class Messages {
         }
     }
 
-    tmplMessage(message) {
-        return `<div class="message">${message}</div>`;
+    tmplMessage({ user, message }) {
+        return `<div class="message"><strong>${user}</strong>: ${message}</div>`;
     }
 }
 

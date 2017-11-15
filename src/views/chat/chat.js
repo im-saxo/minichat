@@ -26,9 +26,9 @@ class Chat extends Base {
         this.$el.appendChild($form);
 
         this.compose = new Form($form);
-        this.compose.onSend = (message) => {
+        this.compose.on('send', (message) => {
             this.messages.addMessage(message);
-        };
+        });
     }
 }
 
