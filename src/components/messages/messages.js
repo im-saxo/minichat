@@ -10,17 +10,37 @@ class Messages {
         this.render();
     }
 
+    hasMessage(data, message) {
+        return data
+            .filter(item => message.uid && item.uid === message.uid)
+            .length;
+    }
+
+    getMessage(data, message) {
+        return data
+            .filter(item => message.uid && item.uid === message.uid)[0];
+    }
+
     addMessage(message) {
         if (!this.data) {
             this.data = [];
         }
 
-        if (!message.time && message.timestamp) {
-            message.time = new Date(message.timestamp);
-        }
+        if (this.hasMessage(this.data, message)) {
+            const existingMessage = this.getMessage(this.data, message);
 
-        this.data.push(message);
-        this.render();
+            // TODO: if(!deepEqual)
+            // Update existing message
+            Object.extend(existingMessage, message);
+            this.render();
+        } else {
+            if (!message.time && message.timestamp) {
+                message.time = new Date(message.timestamp);
+            }
+
+            this.data.push(message);
+            this.render();
+        }
     }
 
     render() {

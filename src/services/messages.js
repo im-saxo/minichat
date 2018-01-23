@@ -1,6 +1,7 @@
 import Emitter from 'event-emitter-es6';
 import * as firebase from 'firebase';
 import authService from '../services/auth';
+import uid from '../utils/uid';
 
 class MessagesService extends Emitter {
     constructor() {
@@ -17,19 +18,20 @@ class MessagesService extends Emitter {
     addMessage({ message }) {
         let user = authService.getUser();
 
-        if (user) { 
+        if (user) {
             let data = {
                 name: user.displayName || user.email,
                 message,
-                timestamp: firebase.database.ServerValue.TIMESTAMP
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                uid: uid.generateUid(),
             };
-            
+
             this.messagesRef.push(data)
                 .then(() => {})
                 .catch((error) => {
                     console.log('push error', error);
                 });
-        }   
+        }
     }
 
     onMessage(data) {
