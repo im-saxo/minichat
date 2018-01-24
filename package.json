@@ -2,13 +2,14 @@
   "name": "minichat",
   "version": "1.0.0",
   "description": "Test project",
+  "repository": "https://github.com/im-saxo/minichat",
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/static .",
     "build": "node_modules/.bin/rollup -c",
     "lint": "node_modules/.bin/eslint src",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "cp index.html dist/index.html && cp bundle.js dist/bundle.js && firebase deploy"
+    "deploy": "cp index.html dist/index.html && cp bundle.js dist/bundle.js && cp bundle.css dist/bundle.css && firebase deploy"
   },
   "author": "Vladimir Demidov <vladimir.dem@gmail.com>",
   "license": "MIT",
@@ -19,10 +20,12 @@
     "node-static": "^0.7.10",
     "rollup": "^0.51.5",
     "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-css-only": "^0.4.0",
     "rollup-plugin-node-resolve": "^3.0.0"
   },
   "dependencies": {
     "event-emitter-es6": "^1.1.5",
-    "firebase": "^4.6.2"
+    "firebase": "^4.6.2",
+    "purecss": "^1.0.0"
   }
 }

@@ -20,3 +20,4 @@ https://minichat-958fd.firebaseapp.com/
 - двоится сообщение
 - lint не проходит
 - нет проверки lint при коммите
+- стили
