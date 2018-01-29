@@ -9,7 +9,7 @@
     "build": "node_modules/.bin/rollup -c",
     "lint": "node_modules/.bin/eslint src",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pre-commit": "npm run lint",
+    "precommit": "npm run lint",
     "deploy": "cp index.html dist/index.html && cp bundle.js dist/bundle.js && cp bundle.css dist/bundle.css && firebase deploy"
   },
   "author": "Vladimir Demidov <vladimir.dem@gmail.com>",
@@ -26,6 +26,7 @@
     "rollup-plugin-node-resolve": "^3.0.0"
   },
   "dependencies": {
+    "escape-html": "^1.0.3",
     "event-emitter-es6": "^1.1.5",
     "firebase": "^4.6.2",
     "purecss": "^1.0.0"

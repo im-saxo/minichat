@@ -8,11 +8,11 @@ class Login {
     }
 
     render() {
-        this.$el.innerHTML = `<form action="#">
+        this.$el.innerHTML = `<form class="pure-form" action="#">
         <div><input type="text" name="email"/></div>
         <div><input type="password" name="password"/></div>
-        <button type="submit" class="btn btn_main">Log in</button>
-        <button class="js-signup">Sign up</button>`;
+        <button type="submit" class="pure-button pure-button-primary btn btn_main">Log in</button>
+        <button class="pure-button js-signup">Sign up</button>`;
 
         this.initEvents();
     }

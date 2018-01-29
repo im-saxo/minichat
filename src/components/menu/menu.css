@@ -1,0 +1,11 @@
+.menu .pure-menu-item {
+    height: auto;
+}
+
+.menu .pure-menu-list {
+    float: right;
+}
+
+/* .menu .pure-menu-list::after {
+    clear: both;
+} */

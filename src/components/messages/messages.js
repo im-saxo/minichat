@@ -1,3 +1,5 @@
+import escapeHtml from 'escape-html';
+
 class Messages {
     constructor($el) {
         this.$el = $el;
@@ -35,7 +37,7 @@ class Messages {
             this.render();
         } else {
             if (!message.time && message.timestamp) {
-                message.time = new Date(message.timestamp);
+                Object.assign(message, { time: new Date(message.timestamp) });
             }
 
             this.data.push(message);
@@ -57,7 +59,7 @@ class Messages {
 
     tmplMessage({ name, message }) {
         return `<div class="message">
-        <strong>${name}</strong>:&nbsp;${message}
+        <strong>${escapeHtml(name)}</strong>:&nbsp;${escapeHtml(message)}
         </div>`;
     }
 }

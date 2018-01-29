@@ -1,4 +1,14 @@
-/*!
+.menu .pure-menu-item {
+    height: auto;
+}
+
+.menu .pure-menu-list {
+    float: right;
+}
+
+/* .menu .pure-menu-list::after {
+    clear: both;
+} *//*!
 Pure v1.0.0
 Copyright 2013 Yahoo!
 Licensed under the BSD License.

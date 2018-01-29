@@ -1,7 +1,6 @@
 import Chat from './views/chat/chat';
 import Auth from './views/auth/auth';
 import Router from './router/router';
-import authService from './services/auth';
 
 import '../node_modules/purecss/build/pure-min.css';
 

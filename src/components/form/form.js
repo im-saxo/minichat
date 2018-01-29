@@ -10,9 +10,9 @@ class Form extends Emitter {
     }
 
     render() {
-        this.$el.innerHTML = `<form class="compose js-form" action="#">
+        this.$el.innerHTML = `<form class="pure-form js-form" action="#">
         <input type="text" class="compose-input js-input" name="message" autocomplete="off"/>
-        <button type="submit" class="btn">Send</button>
+        <button type="submit" class="pure-button pure-button-primary">Send</button>
         </form>`;
 
         this.initEvents();

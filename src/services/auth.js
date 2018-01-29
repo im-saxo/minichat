@@ -28,6 +28,10 @@ class AuthService extends Emitter {
         return this.auth.currentUser;
     }
 
+    logout() {
+        return this.auth.signOut();
+    }
+
     login(email, password) {
         return this.auth.signInWithEmailAndPassword(email, password);
     }

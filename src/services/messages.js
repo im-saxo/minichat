@@ -28,8 +28,8 @@ class MessagesService extends Emitter {
 
             this.messagesRef.push(data)
                 .then(() => {})
-                .catch((error) => {
-                    console.log('push error', error);
+                .catch(() => {
+                    // console.log('push error', error);
                 });
         }
     }
