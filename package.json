@@ -1,6 +1,6 @@
 {
   "name": "minichat",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Test project",
   "repository": "https://github.com/im-saxo/minichat",
   "main": "index.js",
